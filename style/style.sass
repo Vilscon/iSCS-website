@@ -1,0 +1,945 @@
+
+@import 'reset'
+
+/* mixins */
+=vertical-align
+  position: relative
+  top: 50%
+  -webkit-transform: translateY(-50%)
+  -ms-transform: translateY(-50%)
+  transform: translateY(-50%)
+
+=no-vertical-align
+  top: initial
+  -webkit-transform: initial
+  -ms-transform: initial
+  transform: initial
+
+
+=horizontal-align
+  position: relative
+  left: 50%
+  -webkit-transform: translateX(-50%)
+  -ms-transform: translateX(-50%)
+  transform: translateX(-50%)
+
+=absoluteTopLeft
+  position: absolute
+  top: 0
+  left: 0
+
+/* variable */
+$primary-color: #22B8B3
+$dark-gray: #4A4A4A
+$f2: 24px
+$f1: 32px
+
+$s-screen: "(max-width: 40em)"
+$m-screen: "(min-width: 40.0625em) and (max-width: 64em)"
+$sm-screen: "(max-width: 64em)"
+$l-screen: "(min-width: 64.0625em)"
+$xl-screen: "(min-width: 100em)"
+
+
+/* typography */
+h1
+  font-size: 32px
+
+h2
+  font-weight: 900
+  font-size: 24px
+
+strong, b
+  font-weight: 900
+
+p
+  line-height: 1.15
+  padding-bottom: 1rem
+
+p.f1
+  font-size: $f1
+  @media #{$s-screen}
+    font-size: 24px
+
+p.f2
+  font-size: $f2
+  @media #{$s-screen}
+    font-size: 20px
+
+.text-center
+  text-align: center
+
+.text-right
+  text-align: right
+
+/* colors */
+.turquoise
+  color: $primary-color
+
+/* general modificators */
+.verticalAlign
+  +vertical-align
+
+.marginTop20
+  margin-top: 20px
+
+.greenWithUnderline
+  color: $primary-color
+  text-decoration: underline
+
+
+/* general items */
+.scrollTopButton
+  position: fixed
+  bottom: 20px
+  right: 20px
+  opacity: 0
+  font-size: 30px
+  padding: 5px 0
+  text-align: center
+  border: 1px solid $dark-gray
+  border-radius: 8px
+  width: 43px
+  transition: all .5s
+
+.copyright
+  line-height: 1.6
+  padding-bottom: 20px
+  margin-top: 20px
+  color: darkgray
+  .row
+    text-align: center
+    i
+      padding-left: 10px
+
+.scrollTopButton:hover
+  background-color: $primary-color
+  border-color: $primary-color
+  color: white
+
+::selection
+  background: $primary-color /* WebKit/Blink Browsers */
+
+::-moz-selection
+  background: rgba(34, 184, 179, 0.8) /* Gecko Browsers */
+
+html, body
+  height: 100%
+  width: 100%
+
+body
+  background-color: #F2F2F2
+  font-family: lato, sans-serif
+  font-weight: 300
+  -webkit-font-smoothing: subpixel-antialiased !important
+
+.container
+  width: 100%
+  display: inline-block
+  height: auto
+  margin-top: 100vh
+  background-color: #F2F2F2
+  position: relative
+
+  @media only screen and (max-width: 40em)
+    margin-top: 0
+
+
+// img
+//   max-width: none
+
+a
+  color: inherit
+  text-decoration: none
+
+
+
+
+a.button
+  padding: 10px
+  border: 2px solid $primary-color
+  margin-top: 20px
+  color: $primary-color
+  transition: all .5s
+  display: inline-block
+
+a.button:hover
+  background-color: $primary-color
+  color: white
+  @media #{$l-screen}
+    -ms-transform: skewX(-20deg) /* IE 9 */
+    -webkit-transform: skewX(-20deg) /* Safari */
+    transform: skewX(-20deg)
+
+
+a span
+  @media #{$l-screen}
+    display: inline-block
+    transition: transform .5s
+
+a:hover span
+  @media #{$l-screen}
+    -ms-transform: skewX(20deg) /* IE 9 */
+    -webkit-transform: skewX(20deg) /* Safari */
+    transform: skewX(20deg) 
+
+section
+  margin-top: 80px
+
+  .sectionTitle
+    text-align: center
+    width: 100%
+    color: $dark-gray
+    text-transform: uppercase !important
+    padding-bottom: 20px
+    
+    h1, h2
+      font-size: 64px
+
+      @media #{$sm-screen}
+        font-size: 32px
+
+    .slash
+      color: $primary-color
+      font-size: 150%
+      vertical-align: middle
+      height: 112px
+      display: inline-block
+      @media #{$sm-screen}
+        height: 55px
+
+
+section.blockWidth
+  max-width: 1280px
+  padding: 0 80px
+  box-sizing: border-box
+  margin: 80px auto 0 auto
+
+  @media #{$sm-screen}
+    padding: 0 40px
+ 
+
+
+.centered
+  margin: 0 auto
+  width: auto
+  display: inline-block
+
+/* specific blocks */ 
+.rotateDevice
+  position: fixed
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+  transition: .5s all
+  content: "Hallo"
+  z-index: 99999
+  background-color: rgba(34, 184, 179, 0.95)
+  background-image: url('../images/rotateDevice.png')
+  background-size: cover
+  background-position: center
+
+.pushIt
+
+  height: 100vh
+  position: relative
+
+.homepage
+  header
+    height: 100%
+    width: 100%
+    background-image: url('../images/header_background.jpg')
+    background-size: cover
+    background-position: center
+    color: white
+    position: fixed
+    top: 0
+    left: 0
+    z-index: -1
+
+
+
+
+    .logo
+      position: absolute
+      top: 50%
+      left: 50%
+      padding: 0
+      margin: 0
+      transform: translate(-50%, -50%)
+      z-index: 999
+      @media #{$l-screen}
+        left: calc(50% + 20px)
+
+      @media #{$s-screen}
+        top: 40%  
+
+    .content
+      +vertical-align
+      left: calc(50% + 144px)
+      z-index: 999
+      max-width: 30%
+      position: absolute
+
+
+    h1
+      font-size: 64px
+
+    p
+      font-size: 24px
+      line-height: 3
+      @media #{$s-screen}
+        bottom: 20px
+        right: 20px
+        left: initial
+        top: initial
+        +no-vertical-align
+        text-align: right
+        width: 100%
+        max-width: 100%
+        font-size: 48px
+
+    @media only screen and (max-width:40em)
+      position: relative !important
+      height: auto
+      min-height: 100vh
+      opacity: 1 !important
+
+      img
+        display: none
+
+      .content
+        width: 100%
+        max-width: 100%
+        left: 0
+        transform: initial
+        -webkit-transform: initial
+        padding: 20px
+        top: initial !important
+        bottom: 0 !important
+
+        h1
+          margin-bottom: 20px
+
+        p
+          text-align: left !important
+          line-height: 1.5
+          margin-top: 20px
+
+
+  header:after
+    height: 100vh
+    width: 100vw
+    background-image: url('../images/bgOverlay.png')
+    background-size: cover
+    content: ""
+    z-index: 0
+    background-position: center
+    +absoluteTopLeft
+
+    @media #{$s-screen}
+      background-image: none
+      background-color: rgba(34, 184, 179, 0.8)
+
+
+/* specific styling */
+#overMij
+
+  .sectionTitle
+    margin-left: -40px
+  
+  .f1
+    text-align: right
+    @media #{$sm-screen}
+      text-align: initial
+      margin-bottom: 10px
+
+  .f2
+    line-height: 1.5
+
+#benDoe
+
+  .columns:first-child .columns, .columns:first-child .columns .sectionTitle
+    text-align: right
+    @media #{$s-screen}
+      text-align: center
+
+  .columns:last-child .columns, .columns:last-child .columns .sectionTitle
+    text-align: left
+    @media #{$s-screen}
+      text-align: center
+
+  .columns:last-child .columns .sectionTitle
+    @media #{$s-screen}
+      margin-top: 40px
+
+  .columns > .columns
+    padding: 0
+
+  .columns .columns .columns
+    text-align: center
+
+    img
+      clear: both
+      padding-bottom: 10px
+      @media #{$s-screen}
+        max-width: 50px
+        max-height: 50px
+
+    .iconTitle
+      font-weight: 900
+      text-transform: uppercase
+      clear: both
+      padding-bottom: 10px
+      font-size: $f2
+      @media #{$s-screen}
+        font-size: 16px 
+        padding-bottom: 5px
+
+    .iconDesc
+      @media #{$s-screen}
+        font-size: 12px
+
+
+
+.benDoeIcons
+
+  .oneSeventh
+    text-align: center
+
+    img
+      clear: both
+      padding-bottom: 10px
+
+    .iconTitle
+      font-weight: 900
+      text-transform: uppercase
+      clear: both
+      padding-bottom: 10px
+      font-size: $f2
+
+/* portfolio */
+#portfolio
+  margin-top: 120px
+  max-width: 2300px
+  margin-left: auto
+  margin-right: auto
+
+  .pItem
+    height: 800px
+    position: relative
+    overflow: hidden
+    margin-top: -40px
+    @media #{$s-screen}
+      margin-top: 10px !important
+      height: 100%
+
+    .row
+      @media #{$xl-screen}
+        max-width: 95em
+
+    .descriptionContainer
+      background-color: transparent
+      width: 100%
+      position: absolute
+      margin-top: 80px
+      height: 640px
+      background-repeat: no-repeat
+
+
+      p
+        padding-bottom: 0
+        font-family: LatoWebThin !important
+        font-style: italic
+        font-size: 19px
+        line-height: 1.25
+
+      @media #{$s-screen}
+        text-align: left !important
+        margin-top: 0
+        position: relative
+        height: 100%
+
+      .description
+        padding-left: 40px
+        // -webkit-transform: translateZ(0px)
+        // -webkit-font-smoothing: subpixel-antialiased
+        
+
+        @media #{$s-screen}
+          padding: 20px
+
+      p.f1
+        @media #{$s-screen}
+        position: relative
+        font-family: LatoWebBlack
+        font-size: 32px
+        font-style: initial
+
+      p.onderTitel
+        margin-bottom: 10px
+        font-size: 24px
+        font-style: italic
+        font-family: LatoWebLight
+
+
+      p.f2
+        @media #{$s-screen}
+          font-size: 75px
+          line-height: 1.15
+          padding-bottom: 10px
+  
+      a
+        color: white
+        border-color: white
+        display: inline-block
+
+      .row
+        height: 100%
+
+      .description
+        color: white
+        +vertical-align
+        
+        @media #{$s-screen}
+          +no-vertical-align
+
+    img
+      position: absolute
+    
+    .imageContainer
+      position: absolute !important
+      height: 800px
+      width: calc(50% + 291px)
+      background-repeat: no-repeat
+      -webkit-transform: translateZ(0)
+      -moz-transform: translateZ(0)
+      @media #{$s-screen}
+        display: none
+
+  .pItem.nos 
+    .imageContainer
+      background-image: url('../images/portfolio/nos/cutBackground.png')
+    .descriptionContainer
+      background-image: url('../images/portfolio/nos/textBackground.jpg')
+
+  .pItem.bertSchaeffer
+    .imageContainer
+      background-image: url('../images/portfolio/bertschaeffer/cutBackground.png')
+    .descriptionContainer
+      background-image: url('../images/portfolio/bertschaeffer/textBackground.jpg')
+
+  .pItem.yourdrive
+    .imageContainer
+      background-image: url('../images/portfolio/yourdrive/cutBackground.png')
+    .descriptionContainer
+      background-image: url('../images/portfolio/yourdrive/textBackground.jpg')
+
+  .pItem.verboon
+    .imageContainer
+      background-image: url('../images/portfolio/verboon/cutBackground.png')
+    .descriptionContainer
+      background-image: url('../images/portfolio/verboon/textBackground.jpg')
+
+  .pItem.appelhulp
+    .imageContainer
+      background-image: url('../images/portfolio/appelhulp/cutBackground.png')
+    .descriptionContainer
+      background-image: url('../images/portfolio/appelhulp/textBackground.jpg')
+
+  .pItem.eenHandExtra
+    .imageContainer
+      background-image: url('../images/portfolio/een-hand-extra/cutBackground.png')
+    .descriptionContainer
+      background-image: url('../images/portfolio/een-hand-extra/textBackground.jpg')
+
+ 
+  .pItem:nth-child(3)
+    margin-top: 40px
+
+
+  .pItem.links
+
+    .imageContainer
+      left: -27px
+      background-position: right center
+
+    .descriptionContainer
+      
+      background-position: right center
+
+    .description
+      padding-right: 40px
+      @media #{$s-screen}
+        padding-right: 20px
+
+
+  .pItem.rechts
+
+  
+    .descriptionContainer
+      background-position: left center
+      text-align: right
+
+    .imageContainer
+      right: -27px
+      background-position: left center
+
+
+// secondary portfolio
+#secondaryPortfolio
+  @media #{$sm-screen}
+    padding: 0
+
+  @media only screen and (min-width:100em)
+    max-width: 1680px
+
+    .row
+      max-width: initial
+
+#filter
+  margin: 10px 0 20px 
+  @media #{$sm-screen}
+    padding: 0 40px
+
+  li
+    display: inline-block
+    padding: 0 10px
+    @media #{$sm-screen}
+      padding: 0
+
+    a
+      padding-bottom: 2px
+
+    a.active
+      color: $primary-color
+      font-weight: 900
+      border-bottom: 2px solid $primary-color
+
+#grid, .meerZien
+
+  .item
+    padding: 0px
+    position: relative
+    color: white
+
+    img
+      max-width: 100%
+
+    figcaption:after
+      content: ""
+      width: 2px
+      height: 0%
+      background-color: white
+      position: absolute
+      left: 50%
+      // transform: rotate(-20deg)
+      z-index: 999
+      transition: all .5s cubic-bezier(0.55, 0.055, 0.675, 0.19)
+      top: 50%
+      -webkit-transform: translateY(-50%) rotate(0deg)
+      -ms-transform: translateY(-50%) rotate(0deg)
+      transform: translateY(-50%) rotate(0deg)
+
+
+    figcaption
+      +absoluteTopLeft
+      width: 100%
+      height: 100%
+      z-index: 999
+
+      h2
+        top: 0%
+        position: absolute
+        width: 40%
+        left: 5%
+        z-index: 999
+        text-align: right
+        opacity: 0
+        transition: all .5s cubic-bezier(0.55, 0.055, 0.675, 0.19)
+
+      p
+        bottom: 0%
+        position: absolute
+        width: 40%
+        right: 5%
+        z-index: 999
+        opacity: 0
+        transition: all .5s cubic-bezier(0.55, 0.055, 0.675, 0.19)
+
+    a
+      position: absolute
+      height: 100%
+      width: 100%
+      background-color: $primary-color
+      opacity: 0
+      transition: opacity .5s 
+      left: 0
+      top: 0
+      z-index: 998
+
+  .item:hover 
+
+    a, h2, p
+      opacity: 0.85
+
+    h2
+      top: 10%
+    
+    p
+      bottom: 10%
+
+    figcaption:after
+      height: 80%
+      -webkit-transform: translateY(-50%) rotate(20deg)
+      -ms-transform: translateY(-50%) rotate(20deg)
+      transform: translateY(-50%) rotate(20deg)
+
+/* contact */
+.contact
+
+  input
+    width: 100%
+    display: block
+    color: white
+    border: none
+    font-size: 1rem
+    background-color: $primary-color
+    padding: 10px
+
+    @media #{$sm-screen}
+      margin-bottom: 5px
+      border-radius: 4px
+
+    @media #{$l-screen}
+      font-weight: 300 !important
+      transform:         skew(20deg, 0deg)
+      -webkit-transform: skew(20deg, 0deg)
+      -moz-transform:    skew(20deg, 0deg)
+      -o-transform:      skew(20deg, 0deg)
+      -ms-transform:     skew(20deg, 0deg)
+      background-color: transparent
+      text-align: right
+      padding: 5px   
+
+
+
+  input:focus
+    outline-color: white
+
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder
+    color: white
+    opacity: .5
+
+  input::-moz-placeholder, textarea::-moz-placeholder
+    color: white
+    opacity: .5
+
+  input:-ms-input-placeholder, textarea:-ms-input-placeholder
+    color: white
+    opacity: .5
+
+  input:-moz-placeholder, textarea:-moz-placeholder
+    color: white
+    opacity: .5
+
+  a
+    display: inline-block
+
+  input.button
+    color: $primary-color
+    border: 1px solid $primary-color
+    margin-top: 20px
+    padding: 10px
+    width: initial
+    transform:         skew(0deg, 0deg)
+    -webkit-transform: skew(0deg, 0deg)
+    -moz-transform:    skew(0deg, 0deg)
+    -o-transform:      skew(0deg, 0deg)
+    -ms-transform:     skew(0deg, 0deg)
+    display: inline-block
+    transition: all .5s
+    outline-color: none
+    
+  input.button:hover
+    background-color: $primary-color
+    color: white
+
+  .error, .success
+    display: none
+    margin-top: 20px
+
+  .error
+    color: red
+
+  .success
+    color: $primary-color
+
+  textarea
+    background-color: $primary-color
+    font-weight: 300
+    width: 100%
+    border: transparent
+    padding: 10px
+    color: white
+    font-size: 1rem
+    outline-color: white
+    @media #{$l-screen}
+      background-color: transparent
+      width: 90%  
+      padding: 6px 0px 10px 10px
+      margin-top: 10px
+      margin-left: 15px
+
+    @media #{$sm-screen}
+      border-radius: 6px
+
+  @media #{$l-screen}
+    .leftInputs
+      position: absolute
+      margin-top: 13px
+
+    .inputContainer
+      transform:         skew(-20deg, 0deg)
+      -webkit-transform: skew(-20deg, 0deg)
+      -moz-transform:    skew(-20deg, 0deg)
+      -o-transform:      skew(-20deg, 0deg)
+      -ms-transform:     skew(-20deg, 0deg)
+      padding: 5px
+      background-color: $primary-color
+      width: 100%
+
+
+    .columns:nth-child(1) > .inputContainer:nth-child(1)
+      margin-left: 24px
+      margin-bottom: 10px
+      padding-right: 28px
+
+    .columns:nth-child(1) > .inputContainer:nth-child(2)
+      margin-left: 6px
+      
+    .columns:nth-child(2) > .inputContainer
+      margin-left: -6px
+
+
+    textarea
+      background-color: transparent
+      padding: 6px 0px 10px 10px
+      font-weight: 300
+      width: 90%
+      border: transparent
+      margin-top: 10px
+      margin-left: 15px
+      color: white
+      font-size: 1rem
+      outline-color: white
+      transform:         skew(20deg, 0deg)
+      -webkit-transform: skew(20deg, 0deg)
+      -moz-transform:    skew(20deg, 0deg)
+      -o-transform:      skew(20deg, 0deg)
+      -ms-transform:     skew(20deg, 0deg)
+
+// AFSTUDEREN
+.afstuderen
+  @media (max-width: 64em)
+    section.blockWidth
+      padding: 0 20px
+
+  #overMij .sectionTitle
+    margin-left: 0
+
+
+  .sectionTitle
+
+    p
+      text-transform: initial !important
+
+  header
+    height: 100vh
+    background-image: url('../images/afstuderenHeader.jpg')
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+    max-height: 800px
+    @media only screen and (min-width: 64em) and (max-width: 100em)
+      max-height: 600px
+      background-position: 20% 50%   
+    @media only screen and (min-width: 120em)
+      background-size: contain
+    @media only screen and (max-width:64em) and (min-width:40.0625em)
+      background-position: center
+      height: 38vh
+      max-height: auto
+      h1
+        font-size: 48px !important
+    @media only screen and (max-width:40em)
+      background-position: right center
+      max-height: auto
+      height: 60vh
+
+    h1
+      font-weight: 300
+      text-align: right
+      font-size: 64px
+      color: white
+
+  .container
+    margin-top: 0
+
+  p
+    font-size: 21px
+    line-height: 1.5
+
+  .greenSlash
+    color: $primary-color
+    font-size: 64px
+    padding-right: 10px
+
+  .greenPlus
+
+  .columnTitle
+    font-size: 32px
+    font-weight: 700
+    @media only screen and (max-width:40em)
+      font-size: 24px
+
+    td
+      vertical-align: middle
+
+  img
+    margin-bottom: 10px
+    width: 100%
+
+  .itemBlock
+    margin-bottom: 20px
+    transition: opacity 0.5s
+
+  .itemBlock.fadeOut
+    opacity: 0.4
+
+  @media only screen and (max-width: 64em)
+    .sectionTitle
+      text-align: left
+
+  .temporaryTopMenu
+    margin: 0
+
+    .row
+      padding: 20px 0
+
+      a.button
+        margin-top: 0
+  
+  #mijnWerk
+
+    .columnTitle
+      margin-top: 10px
+      margin-bottom: 10px
+
+
+ 
+
+// IMPORT OTHER PAGE CSS
+@import 'caseStudy'
+@import 'loader.scss'
