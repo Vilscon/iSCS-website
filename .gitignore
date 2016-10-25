@@ -1,2 +1,3 @@
-images/portfolio
-0. Older Versions
+# Exclude any PSD/AI source
+*.psd
+*.ai
